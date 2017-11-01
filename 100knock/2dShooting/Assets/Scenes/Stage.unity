@@ -108,6 +108,110 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &380772886
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4081404664889856, guid: 75198a688804b594d97af9a31464da0a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081404664889856, guid: 75198a688804b594d97af9a31464da0a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081404664889856, guid: 75198a688804b594d97af9a31464da0a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081404664889856, guid: 75198a688804b594d97af9a31464da0a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081404664889856, guid: 75198a688804b594d97af9a31464da0a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081404664889856, guid: 75198a688804b594d97af9a31464da0a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081404664889856, guid: 75198a688804b594d97af9a31464da0a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081404664889856, guid: 75198a688804b594d97af9a31464da0a, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 75198a688804b594d97af9a31464da0a, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1255001835
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4254903022111520, guid: 3348f3a7cd143374ab9824b97b2fe605, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254903022111520, guid: 3348f3a7cd143374ab9824b97b2fe605, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.391
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254903022111520, guid: 3348f3a7cd143374ab9824b97b2fe605, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254903022111520, guid: 3348f3a7cd143374ab9824b97b2fe605, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254903022111520, guid: 3348f3a7cd143374ab9824b97b2fe605, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254903022111520, guid: 3348f3a7cd143374ab9824b97b2fe605, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254903022111520, guid: 3348f3a7cd143374ab9824b97b2fe605, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254903022111520, guid: 3348f3a7cd143374ab9824b97b2fe605, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3348f3a7cd143374ab9824b97b2fe605, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1545112691 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1806688410692580, guid: 75198a688804b594d97af9a31464da0a,
+    type: 2}
+  m_PrefabInternal: {fileID: 380772886}
+--- !u!114 &1545112697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1545112691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b9317aca4f66c49a229dc6eda454e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  shotDelay: 0.05
+  bullet: {fileID: 1466554103519090, guid: be96554c790b9bf4f9ad3996e0a1cc2f, type: 2}
+  canShot: 1
 --- !u!1 &2040529840
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +272,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
