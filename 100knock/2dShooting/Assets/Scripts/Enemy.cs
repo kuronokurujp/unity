@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
-
+public class Enemy : Spaceship
+{
     Spaceship spaceship;
+
+    public override void Move(Vector2 direction)
+    {
+        GetComponent<Rigidbody2D>().velocity = direction * speed;
+    }
 
     private IEnumerator Start()
     {
@@ -25,5 +30,21 @@ public class Enemy : MonoBehaviour {
 
             yield return new WaitForSeconds(spaceship.shotDelay);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        string layerName = LayerMask.LayerToName(collision.gameObject.layer);
+
+        if( layerName != "Bullet_Player")
+        {
+            return;
+        }
+
+        Destroy(collision.gameObject);
+
+        spaceship.Explotion();
+
+        Destroy(gameObject);
     }
 }
