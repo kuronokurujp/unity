@@ -183,6 +183,7 @@ MonoBehaviour:
   bullet: {fileID: 1145533864348820, guid: 1f2f0b71688951b41b3848cec2b64bfd, type: 2}
   explotion: {fileID: 1915753647665124, guid: 6f9994bd06bea4545af00d668c373787, type: 2}
   canShot: 1
+  hp: 10
 --- !u!212 &212691909693476386
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -223,4 +224,3 @@ SpriteRenderer:
   m_Size: {x: 0.96, y: 0.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1

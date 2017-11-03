@@ -248,6 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   lifeTime: 1
+  power: 1
 --- !u!212 &212022359863824908
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -288,7 +289,6 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
 --- !u!212 &212841563364197730
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -329,4 +329,3 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1

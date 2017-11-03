@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour {
     //  インスペクターに設定
     public float speed = 10.0f;
     public float lifeTime = 5.0f;
+    public int power = 1;
 
 	// Use this for initialization
 	void Start () {

@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour {
     public void GameOver()
     {
         TitleUI.SetActive(true);
+
+        FindObjectOfType<ScoreUI>().Save();
     }
 
     public bool IsPlaying()

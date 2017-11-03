@@ -13,6 +13,8 @@ abstract public class Spaceship : MonoBehaviour {
     public GameObject explotion = null;
     public bool canShot = true;
 
+    protected Animator mAnimator = null;
+
     //  弾を撃つ
     public void Shot(Transform origin)
     {
@@ -26,5 +28,10 @@ abstract public class Spaceship : MonoBehaviour {
     public void Explotion()
     {
         Instantiate(explotion, transform.position, transform.rotation);
+    }
+
+    private void Awake()
+    {
+        mAnimator = GetComponent<Animator>();
     }
 }

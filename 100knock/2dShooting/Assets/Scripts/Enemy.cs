@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy : Spaceship
 {
+    public int hp = 10;
+    public int Point = 100;
+
     Spaceship spaceship;
 
     public override void Move(Vector2 direction)
@@ -41,10 +44,24 @@ public class Enemy : Spaceship
             return;
         }
 
+        //  ヒットした弾の親オブジェクトに弾データがある。（めんどうだ）
+        Bullet bullet = collision.transform.parent.gameObject.GetComponent<Bullet>();
+        hp -= bullet.power;
+
         Destroy(collision.gameObject);
 
-        spaceship.Explotion();
+        if ( hp <= 0 )
+        {
+            FindObjectOfType<ScoreUI>().AddPoint( Point );
 
-        Destroy(gameObject);
+            spaceship.Explotion();
+
+            Destroy(gameObject);
+        }
+        else
+        {
+            mAnimator.SetTrigger("Damage");
+        }
+
     }
 }
