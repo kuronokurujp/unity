@@ -16,9 +16,18 @@ abstract public class Spaceship : MonoBehaviour {
     protected Animator mAnimator = null;
 
     //  弾を撃つ
-    public void Shot(Transform origin)
+    public bool Shot(Transform origin)
     {
-        Instantiate(bullet, origin.position, origin.rotation);
+        if (canShot == false)
+        {
+            return false;
+        }
+
+        //  プール式に変更してみる
+        ObjectPool.instance.GetGameObject(bullet, origin.position, origin.rotation);
+        //        Instantiate(bullet, origin.position, origin.rotation);
+
+        return true;
     }
 
     //  移動する(継承先で実装)

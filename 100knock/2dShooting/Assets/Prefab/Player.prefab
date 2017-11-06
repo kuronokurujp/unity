@@ -202,7 +202,8 @@ MonoBehaviour:
   shotDelay: 0.05
   bullet: {fileID: 1466554103519090, guid: be96554c790b9bf4f9ad3996e0a1cc2f, type: 2}
   explotion: {fileID: 1915753647665124, guid: 6f9994bd06bea4545af00d668c373787, type: 2}
-  canShot: 1
+  canShot: 0
+  gameManager: {fileID: 0}
 --- !u!212 &212238379192545504
 SpriteRenderer:
   m_ObjectHideFlags: 1

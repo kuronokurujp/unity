@@ -11,8 +11,32 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        bool bPlaying = IsPlaying();
+
+        //  ゲームスタートさせる条件がそろっている場合は入力によってゲームスタートする
+        if ( bPlaying == true )
+        {
+            return;
+        }
+
+        bool bGameStart = false;
+        for( int i = 0; i < Input.touchCount; ++i)
+        {
+            Touch touch = Input.GetTouch(i);
+
+            if( touch.phase == TouchPhase.Began )
+            {
+                bGameStart = true;
+                break;
+            }
+        }
 		
-        if( ( IsPlaying() == false ) && (Input.GetKeyDown(KeyCode.X)))
+        if( Input.GetMouseButtonDown(0) )
+        {
+            bGameStart = true;
+        }
+
+        if( bGameStart )
         {
             _GameStart();
         }

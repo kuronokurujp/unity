@@ -15,6 +15,20 @@ public class DestroyArea : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        string layerName = LayerMask.LayerToName(collision.gameObject.layer);
+
+        if (layerName == "Bullet_Enemy")
+        {
+            ObjectPool.instance.ReleaseGameObject(collision.gameObject);
+            return;
+        }
+        else if (layerName == "Bullet_Player")
+        {
+            Bullet bullet = collision.transform.parent.gameObject.GetComponent<Bullet>();
+            ObjectPool.instance.ReleaseGameObject(bullet.gameObject);
+            return;
+        }
+
         Destroy(collision.gameObject);
     }
 }

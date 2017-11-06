@@ -19,11 +19,6 @@ public class Enemy : Spaceship
         spaceship   = GetComponent<Spaceship>();
         spaceship.Move( transform.up * -1 );
 
-        if(spaceship.canShot == false)
-        {
-            yield break;
-        }
-
         while(true)
         {
             for( int i = 0; i < transform.childCount; ++i )
@@ -48,7 +43,8 @@ public class Enemy : Spaceship
         Bullet bullet = collision.transform.parent.gameObject.GetComponent<Bullet>();
         hp -= bullet.power;
 
-        Destroy(collision.gameObject);
+        ObjectPool.instance.ReleaseGameObject(bullet.gameObject);
+        //Destroy(collision.gameObject);
 
         if ( hp <= 0 )
         {

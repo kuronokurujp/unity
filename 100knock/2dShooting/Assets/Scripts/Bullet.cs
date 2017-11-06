@@ -11,14 +11,17 @@ public class Bullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GetComponent<Rigidbody2D>().velocity = transform.up.normalized * speed;
-
         //  時間差でオブジェクトを削除
-        Destroy(gameObject, lifeTime);
+        //Destroy(gameObject, lifeTime);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+    }
+
+    private void OnEnable()
+    {
+        //  SetActive(false)にすると velocity値がクリアされるので、有効になった段階で再設定している
+        GetComponent<Rigidbody2D>().velocity = transform.up.normalized * speed;
+    }
 }

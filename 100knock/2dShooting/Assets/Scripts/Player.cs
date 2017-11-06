@@ -32,9 +32,10 @@ public class Player : Spaceship
 
         while(true)
         {
-            spaceshipe.Shot(transform);
-
-            GetComponent<AudioSource>().Play();
+            if (spaceshipe.Shot(transform) == true)
+            {
+                GetComponent<AudioSource>().Play();
+            }
 
             yield return new WaitForSeconds(spaceshipe.shotDelay);
         }
@@ -63,7 +64,8 @@ public class Player : Spaceship
         if(layerName == "Bullet_Enemy")
         {
             //  ヒットしたオブジェクトは消す
-            Destroy(collision.gameObject);
+            ObjectPool.instance.ReleaseGameObject(collision.gameObject);
+            //Destroy(collision.gameObject);
         }
 
         // 敵の弾 または 敵の場合、自身は消滅
