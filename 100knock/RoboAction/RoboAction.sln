@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboAction.Plugins", "RoboAction.Plugins.csproj", "{A8E1A5D3-3C4A-6532-3C0F-46B5B10E8D05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboAction", "RoboAction.csproj", "{88ED9906-9E33-5E6D-107E-3AB23A2DA43B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboAction.Editor.Plugins", "RoboAction.Editor.Plugins.csproj", "{D5901D43-C062-34AA-FAAC-B0E30635704D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8E1A5D3-3C4A-6532-3C0F-46B5B10E8D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8E1A5D3-3C4A-6532-3C0F-46B5B10E8D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8E1A5D3-3C4A-6532-3C0F-46B5B10E8D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8E1A5D3-3C4A-6532-3C0F-46B5B10E8D05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88ED9906-9E33-5E6D-107E-3AB23A2DA43B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88ED9906-9E33-5E6D-107E-3AB23A2DA43B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88ED9906-9E33-5E6D-107E-3AB23A2DA43B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88ED9906-9E33-5E6D-107E-3AB23A2DA43B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5901D43-C062-34AA-FAAC-B0E30635704D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5901D43-C062-34AA-FAAC-B0E30635704D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5901D43-C062-34AA-FAAC-B0E30635704D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5901D43-C062-34AA-FAAC-B0E30635704D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
