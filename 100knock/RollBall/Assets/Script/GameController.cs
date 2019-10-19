@@ -2,25 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour {
-
-    // インスペクター上の設定
-    public UnityEngine.UI.Text scoreLabel = null;
+public class GameController : MonoBehaviour
+{
     public GameObject winnerGameObject = null;
+    public PlayerController playerController = null;
+    public UIController uiController = null;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        int count = GameObject.FindGameObjectsWithTag("item").Length;
-        scoreLabel.text = count.ToString();
+    private State state = State.Title;
 
-        if( count <= 0 )
-        {
-            winnerGameObject.SetActive(true);
-        }
+    public enum State
+    {
+        Title = 0,
+        Game,
+    }
+
+    // Use this for initialization
+    private void Start()
+    {
+        this.SetState(State.Title);
+    }
+
+    private void SetState(State in_state)
+    {
+        this.state = in_state;
+        this.uiController.SetState(in_state);
+        this.playerController.SetState(in_state);
     }
 }
