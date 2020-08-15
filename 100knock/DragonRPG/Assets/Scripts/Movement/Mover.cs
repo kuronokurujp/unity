@@ -1,21 +1,39 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using RPG.Combat;
 
 namespace RPG.Core
 {
-    public class Mover : MonoBehaviour
+    public class Mover : MonoBehaviour, IAction
     {
+        NavMeshAgent navMeshAgent = null;
+
+        private void Start()
+        {
+            this.navMeshAgent = this.GetComponent<NavMeshAgent>();
+            Debug.Assert(this.navMeshAgent != null);
+        }
+
         private void Update()
         {
             this.UpdateAnimation();
         }
 
+        public void StartMoveAction(Vector3 destination)
+        {
+            this.GetComponent<ActionScheduler>().StartAction(this);
+            this.MoveTo(destination);
+        }
+
         public void MoveTo(Vector3 destination)
         {
-            var navMeshAgent = this.GetComponent<NavMeshAgent>();
-            Debug.Assert(navMeshAgent != null);
+            this.navMeshAgent.destination = destination;
+            this.navMeshAgent.isStopped = false;
+        }
 
-            navMeshAgent.destination = destination;
+        public void Cancel()
+        {
+            this.navMeshAgent.isStopped = true;
         }
 
         private void UpdateAnimation()
