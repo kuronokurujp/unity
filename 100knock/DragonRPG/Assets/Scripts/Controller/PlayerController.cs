@@ -1,15 +1,28 @@
 using RPG.Core;
+using RPG.Combat;
 using UnityEngine;
 
 namespace RPG.Controller
 {
     public class PlayerController : MonoBehaviour
     {
+        private Health health = null;
+
+        /// <summary>
+        /// Start is called on the frame when a script is enabled just before
+        /// any of the Update methods is called the first time.
+        /// </summary>
+        private void Start()
+        {
+            this.health = this.GetComponent<Health>();
+        }
+
         /// <summary>
         /// Update is called every frame, if the MonoBehaviour is enabled.
         /// </summary>
         private void Update()
         {
+            if (this.health.IsDead()) return;
             if (this.InteractWithCombat()) return;
             if (this.InteractWithMovement()) return;
         }
@@ -19,8 +32,8 @@ namespace RPG.Controller
             var hits = Physics.RaycastAll(this.GetMouseRay());
             foreach (var hit in hits)
             {
-                var target = hit.transform.GetComponent<RPG.Combat.CombatTarget>();
-                if (target == null) continue;
+                var target = hit.transform.gameObject;
+                if (!this.GetComponent<Fighter>().CanAttack(target)) continue;
 
                 if (Input.GetMouseButtonDown(0))
                 {

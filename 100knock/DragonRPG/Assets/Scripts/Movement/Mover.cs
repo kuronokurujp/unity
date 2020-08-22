@@ -7,15 +7,20 @@ namespace RPG.Core
     public class Mover : MonoBehaviour, IAction
     {
         NavMeshAgent navMeshAgent = null;
+        Health health = null;
 
         private void Start()
         {
             this.navMeshAgent = this.GetComponent<NavMeshAgent>();
             Debug.Assert(this.navMeshAgent != null);
+
+            this.health = this.GetComponent<Health>();
         }
 
         private void Update()
         {
+            // 死んだ場合Navemeshを無効にする事で死んだキャラを障害物にしないようにする
+            this.navMeshAgent.enabled = !this.health.IsDead();
             this.UpdateAnimation();
         }
 
