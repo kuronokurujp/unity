@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 using RPG.Combat;
+using RPG.Core;
 
-namespace RPG.Core
+namespace RPG.Movement
 {
     public class Mover : MonoBehaviour, IAction
     {
