@@ -20,6 +20,8 @@ namespace RPG.Controller
         private float wayPointToLerance = 1.0f;
         [SerializeField]
         private float wayPointDewllTime = 1.0f;
+        [SerializeField]
+        private float patrolMoveSpeedFraction = 0.2f;
 
         private GameObject player = null;
         private Fighter fighter = null;
@@ -83,7 +85,7 @@ namespace RPG.Controller
 
             if (this.timeSinceArrivedAtWayPoint >= this.wayPointDewllTime)
             {
-                this.mover.StartMoveAction(nextPosition);
+                this.mover.StartMoveAction(nextPosition, this.patrolMoveSpeedFraction);
             }
         }
 

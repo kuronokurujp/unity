@@ -7,8 +7,11 @@ namespace RPG.Movement
 {
     public class Mover : MonoBehaviour, IAction
     {
-        NavMeshAgent navMeshAgent = null;
-        Health health = null;
+        [SerializeField]
+        private float moveSpeed = 6f;
+
+        private NavMeshAgent navMeshAgent = null;
+        private Health health = null;
 
         private void Start()
         {
@@ -25,15 +28,16 @@ namespace RPG.Movement
             this.UpdateAnimation();
         }
 
-        public void StartMoveAction(Vector3 destination)
+        public void StartMoveAction(Vector3 destination, float moveSpeedFraction)
         {
             this.GetComponent<ActionScheduler>().StartAction(this);
-            this.MoveTo(destination);
+            this.MoveTo(destination, moveSpeedFraction);
         }
 
-        public void MoveTo(Vector3 destination)
+        public void MoveTo(Vector3 destination, float moveSpeedFraction)
         {
             this.navMeshAgent.destination = destination;
+            this.navMeshAgent.speed = this.moveSpeed * Mathf.Clamp01(moveSpeedFraction);
             this.navMeshAgent.isStopped = false;
         }
 
