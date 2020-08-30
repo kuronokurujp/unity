@@ -8,24 +8,21 @@ namespace RPG.Combat
     {
         [SerializeField]
         private float weaponRange = 2.0f;
-
         [SerializeField]
         private float timeBetweenAttacks = 1.0f;
-
         [SerializeField]
         private float weaponDamage = 5.0f;
-
         private Health target = null;
         private float timeSinceLastAttack = 0.0f;
-
         public bool CanAttack(GameObject target)
         {
             if (target == null) return false;
+            // 自身が攻撃対象でないかチェック
+            if (this.gameObject == target) return false;
 
             var targetToTest = target.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead();
         }
-
         private void Update()
         {
             this.timeSinceLastAttack += Time.deltaTime;
@@ -49,7 +46,6 @@ namespace RPG.Combat
                 this.AttackBehaviour();
             }
         }
-
         private void AttackBehaviour()
         {
             this.transform.LookAt(this.target.transform);
@@ -59,7 +55,6 @@ namespace RPG.Combat
                 this.timeSinceLastAttack = 0.0f;
             }
         }
-
         private void TriggerAttack()
         {
             var animator = this.GetComponent<Animator>();
@@ -78,13 +73,11 @@ namespace RPG.Combat
 
             this.target.TakeDamge(this.weaponDamage);
         }
-
         private bool GetIsRange()
         {
             Debug.Assert(this.target != null);
             return Vector3.Distance(this.transform.position, this.target.transform.position) < this.weaponRange;
         }
-
         public void Attack(GameObject combatTarget)
         {
             Debug.Assert(combatTarget);
@@ -92,13 +85,12 @@ namespace RPG.Combat
             this.GetComponent<ActionScheduler>().StartAction(this);
             this.target = combatTarget.GetComponent<Health>();
         }
-
         public void Cancel()
         {
             this.target = null;
             this.StopAttack();
+            this.GetComponent<Mover>().Cancel();
         }
-
         private void StopAttack()
         {
             var animator = this.GetComponent<Animator>();

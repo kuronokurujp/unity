@@ -1,19 +1,29 @@
 using UnityEngine;
+using RPG.Saving;
 
 namespace RPG.Core
 {
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField]
         private float helathPoints = 100.0f;
-
         private bool isDead = false;
-
+        public object CaptureState()
+        {
+            return this.helathPoints;
+        }
         public bool IsDead()
         {
             return this.isDead;
         }
-
+        public void RestoreState(object state)
+        {
+            this.helathPoints = (float)state;
+            if (this.helathPoints == 0)
+            {
+                this.Die();
+            }
+        }
         public void TakeDamge(float damage)
         {
             this.helathPoints = Mathf.Max(this.helathPoints - damage, 0.0f);
@@ -22,7 +32,6 @@ namespace RPG.Core
                 this.Die();
             }
         }
-
         private void Die()
         {
             if (this.isDead) return;

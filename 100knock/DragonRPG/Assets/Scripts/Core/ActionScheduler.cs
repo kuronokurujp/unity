@@ -7,7 +7,6 @@ namespace RPG.Core
     public class ActionScheduler : MonoBehaviour
     {
         private IAction currentAction = null;
-
         public void StartAction(IAction action)
         {
             if (this.currentAction == action) return;
@@ -18,7 +17,6 @@ namespace RPG.Core
 
             this.currentAction = action;
         }
-
         public void CancelCurrentAction()
         {
             this.StartAction(null);

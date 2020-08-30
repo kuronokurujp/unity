@@ -62,13 +62,11 @@ namespace RPG.Controller
 
             this.UpdateTimer();
         }
-
         private void UpdateTimer()
         {
             this.timeSinceLastSawPlayer += Time.deltaTime;
             this.timeSinceArrivedAtWayPoint += Time.deltaTime;
         }
-
         private void PatrolBehaviour()
         {
             var nextPosition = this.guardPosition;
@@ -88,35 +86,29 @@ namespace RPG.Controller
                 this.mover.StartMoveAction(nextPosition, this.patrolMoveSpeedFraction);
             }
         }
-
         private Vector3 GetCurrentWayPoint()
         {
             var pos = this.patrolPath.GetChildPosition(this.currentWayPointIndex);
             return pos;
         }
-
         private void CycleWayPoint()
         {
             this.currentWayPointIndex = this.patrolPath.GetNextIndex(this.currentWayPointIndex);
         }
-
         private bool AtWayPoint()
         {
             var distance = Vector3.Distance(this.transform.position, this.GetCurrentWayPoint());
             return distance < this.wayPointToLerance;
         }
-
         private void SuspictionBehaviour()
         {
             this.GetComponent<ActionScheduler>().CancelCurrentAction();
         }
-
         private void AttackBehaviour()
         {
             this.timeSinceLastSawPlayer = 0.0f;
             this.fighter.Attack(this.player);
         }
-
         private bool IsAttackRangeOfPlayer()
         {
             if (this.player == null)

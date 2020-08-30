@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!136 &1377177481
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647647680704866028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &1852440741371215562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,10 +106,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4063399568157627730, guid: bb7ceed1c1a130e449460b573cb84011,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: player
+      objectReference: {fileID: 0}
     - target: {fileID: 6289522349002921937, guid: bb7ceed1c1a130e449460b573cb84011,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 32.3
       objectReference: {fileID: 0}
     - target: {fileID: 6289522349002921937, guid: bb7ceed1c1a130e449460b573cb84011,
         type: 3}
@@ -105,22 +124,22 @@ PrefabInstance:
     - target: {fileID: 6289522349002921937, guid: bb7ceed1c1a130e449460b573cb84011,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -47.1
       objectReference: {fileID: 0}
     - target: {fileID: 6289522349002921937, guid: bb7ceed1c1a130e449460b573cb84011,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6289522349002921937, guid: bb7ceed1c1a130e449460b573cb84011,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6289522349002921937, guid: bb7ceed1c1a130e449460b573cb84011,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6289522349002921937, guid: bb7ceed1c1a130e449460b573cb84011,
         type: 3}
@@ -145,6 +164,11 @@ PrefabInstance:
     - target: {fileID: 6289522349002921937, guid: bb7ceed1c1a130e449460b573cb84011,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289522349002921939, guid: bb7ceed1c1a130e449460b573cb84011,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6289522349002921941, guid: bb7ceed1c1a130e449460b573cb84011,

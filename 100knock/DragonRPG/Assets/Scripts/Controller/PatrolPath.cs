@@ -19,7 +19,6 @@ namespace RPG.Controller
                 Gizmos.DrawLine(this.GetChildPosition(i), this.GetChildPosition(this.GetNextIndex(i)));
             }
         }
-
         public int GetNextIndex(int i)
         {
             int nextIndex = i + 1;
@@ -30,7 +29,6 @@ namespace RPG.Controller
 
             return nextIndex;
         }
-
         public Vector3 GetChildPosition(int i)
         {
             return this.transform.GetChild(i).position;
