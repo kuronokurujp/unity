@@ -7,13 +7,23 @@ namespace RPG.Combat
     public class Fighter : MonoBehaviour, IAction 
     {
         [SerializeField]
-        private float weaponRange = 2.0f;
-        [SerializeField]
         private float timeBetweenAttacks = 1.0f;
         [SerializeField]
-        private float weaponDamage = 5.0f;
+        private Transform handTransform = null;
+        [SerializeField]
+        private Weapon defaultWeaponData = null;
+        private Weapon currentWeaponData = null;
         private Health target = null;
         private float timeSinceLastAttack = 0.0f;
+        /// <summary>
+        /// Start is called on the frame when a script is enabled just before
+        /// any of the Update methods is called the first time.
+        /// </summary>
+        private void Start()
+        {
+            // 初期装備
+            this.EquipWeapon(this.defaultWeaponData); 
+        }
         public bool CanAttack(GameObject target)
         {
             if (target == null) return false;
@@ -22,6 +32,11 @@ namespace RPG.Combat
 
             var targetToTest = target.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead();
+        }
+        public void EquipWeapon(Weapon weaponData)
+        {
+            this.currentWeaponData = weaponData;
+            this.currentWeaponData.Spawn(this.handTransform, this.GetComponent<Animator>());
         }
         private void Update()
         {
@@ -71,12 +86,12 @@ namespace RPG.Combat
         {
             if (this.target == null) return;
 
-            this.target.TakeDamge(this.weaponDamage);
+            this.target.TakeDamge(this.defaultWeaponData.GetDamage());
         }
         private bool GetIsRange()
         {
             Debug.Assert(this.target != null);
-            return Vector3.Distance(this.transform.position, this.target.transform.position) < this.weaponRange;
+            return Vector3.Distance(this.transform.position, this.target.transform.position) < this.defaultWeaponData.GetRange();
         }
         public void Attack(GameObject combatTarget)
         {

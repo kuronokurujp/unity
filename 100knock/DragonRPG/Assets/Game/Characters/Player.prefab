@@ -26,6 +26,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e6319a1cb6769b419443fc8e5d5814e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6214901572678264028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8803324849815103235}
+  m_Layer: 0
+  m_Name: Weapon_Hand_Null
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8803324849815103235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6214901572678264028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.002, y: 0.009, z: 0.164}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 173747300670392341}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &173747300670263989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99,6 +129,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b52b81e462d3b65488697820e7a20739, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e42d9259129992a4d95e0b320ca2a43d, type: 3}
+--- !u!4 &173747300670392341 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400032, guid: e42d9259129992a4d95e0b320ca2a43d,
+    type: 3}
+  m_PrefabInstance: {fileID: 173747300670263989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3407609732588368185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -181,6 +217,45 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9212335320912042822, guid: bb7ceed1c1a130e449460b573cb84011,
+        type: 3}
+      propertyPath: sowrdWeaponObjectParentObject
+      value: 
+      objectReference: {fileID: 8803324849815103235}
+    - target: {fileID: 9212335320912042822, guid: bb7ceed1c1a130e449460b573cb84011,
+        type: 3}
+      propertyPath: sowrdWeaponPrefab
+      value: 
+      objectReference: {fileID: 100050, guid: 9b8801d8aa383584b8c3f62346c33539, type: 3}
+    - target: {fileID: 9212335320912042822, guid: bb7ceed1c1a130e449460b573cb84011,
+        type: 3}
+      propertyPath: weaponAnimatorOverrideCtrl
+      value: 
+      objectReference: {fileID: 22100000, guid: 50eef5505dd89ac499d2a7a97c868a04,
+        type: 2}
+    - target: {fileID: 9212335320912042822, guid: bb7ceed1c1a130e449460b573cb84011,
+        type: 3}
+      propertyPath: handTransform
+      value: 
+      objectReference: {fileID: 8803324849815103235}
+    - target: {fileID: 9212335320912042822, guid: bb7ceed1c1a130e449460b573cb84011,
+        type: 3}
+      propertyPath: waponData
+      value: 
+      objectReference: {fileID: 11400000, guid: f2beed572f254014eb9062ae1b491c7e,
+        type: 2}
+    - target: {fileID: 9212335320912042822, guid: bb7ceed1c1a130e449460b573cb84011,
+        type: 3}
+      propertyPath: weaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: f2beed572f254014eb9062ae1b491c7e,
+        type: 2}
+    - target: {fileID: 9212335320912042822, guid: bb7ceed1c1a130e449460b573cb84011,
+        type: 3}
+      propertyPath: defaultWeaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: 3289c8ae81170c64db383b5c684241b5,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb7ceed1c1a130e449460b573cb84011, type: 3}
 --- !u!1 &8647647680704866028 stripped
