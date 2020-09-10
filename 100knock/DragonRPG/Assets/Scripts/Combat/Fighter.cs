@@ -9,7 +9,10 @@ namespace RPG.Combat
         [SerializeField]
         private float timeBetweenAttacks = 1.0f;
         [SerializeField]
-        private Transform handTransform = null;
+        private Transform rightHandTransform = null;
+        [SerializeField]
+        private Transform leftHandTransform = null;
+
         [SerializeField]
         private Weapon defaultWeaponData = null;
         private Weapon currentWeaponData = null;
@@ -36,7 +39,7 @@ namespace RPG.Combat
         public void EquipWeapon(Weapon weaponData)
         {
             this.currentWeaponData = weaponData;
-            this.currentWeaponData.Spawn(this.handTransform, this.GetComponent<Animator>());
+            this.currentWeaponData.Spawn(this.rightHandTransform, this.leftHandTransform, this.GetComponent<Animator>());
         }
         private void Update()
         {

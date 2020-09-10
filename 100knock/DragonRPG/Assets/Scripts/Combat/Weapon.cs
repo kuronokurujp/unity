@@ -15,14 +15,22 @@ namespace RPG.Combat
         private float weaponRange = 2.0f;
         [SerializeField]
         private float weaponDamage = 5.0f;
+        [SerializeField]
+        private bool isRightHand = true;
 
-        public void Spawn(Transform handTransform, Animator animator)
+        public void Spawn(Transform rightHand, Transform leftHand, Animator animator)
         {
-            if (this.equippedWeaponPrefab != null && handTransform != null) 
+            if (this.equippedWeaponPrefab != null) 
             {
-                var newSowrdWeaponObject = GameObject.Instantiate(this.equippedWeaponPrefab, handTransform);
+                Transform handTransform = leftHand;
+                if (isRightHand) handTransform = rightHand;
+                Debug.Assert(handTransform != null);
+
+                var newSowrdWeaponObject = GameObject.Instantiate(this.equippedWeaponPrefab, handTransform, false);
+                /*
                 newSowrdWeaponObject.transform.localPosition = Vector3.zero;
                 newSowrdWeaponObject.transform.localRotation = Quaternion.identity;
+                */
             }
 
             if (this.animatorOverrideCtrl != null && animator != null)
