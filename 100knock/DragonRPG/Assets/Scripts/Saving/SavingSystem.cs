@@ -45,13 +45,13 @@ namespace RPG.Saving
             string filePath = this.GetPath(fileName);
             if (!File.Exists(filePath)) return;
 
-            Debug.LogFormat("Delete to {0}", filePath);
+ //           Debug.LogFormat("Delete to {0}", filePath);
             File.Delete(filePath);
         }
         private void SaveFile(string fileName, object state)
         {
             string filePath = this.GetPath(fileName);
-            Debug.LogFormat("save to {0}", filePath);
+//            Debug.LogFormat("save to {0}", filePath);
 
             using (var stream = File.Open(filePath, FileMode.Create))
             {

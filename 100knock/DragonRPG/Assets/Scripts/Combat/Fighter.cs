@@ -82,14 +82,19 @@ namespace RPG.Combat
             animator.SetTrigger("attack");
         }
 
-        /// <summary>
-        /// Animation Event.
-        /// </summary>
+        // このメソッドはAnimationEvent
         private void Hit()
         {
             if (this.target == null) return;
 
             this.target.TakeDamge(this.defaultWeaponData.GetDamage());
+        }
+        // このメソッドはAnimationEvent
+        private void Shoot()
+        {
+            if (this.target == null) return;
+            if (this.currentWeaponData.HaveProjectile() == false) return;
+            this.currentWeaponData.LaunchProjectile(this.rightHandTransform, this.leftHandTransform, this.target);
         }
         private bool GetIsRange()
         {

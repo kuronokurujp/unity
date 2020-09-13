@@ -10,12 +10,12 @@ namespace RPG.SceneManagement
         private CanvasGroup canvasGropu = null;
         public void FadeOutImmediate()
         {
-            Debug.Log("FadeOutImmediate");
+//            Debug.Log("FadeOutImmediate");
             this.GetCanvasGroup().alpha = 1f;
         }
         public void FadeInImmediate()
         {
-            Debug.Log("FadeInImmediate");
+//            Debug.Log("FadeInImmediate");
             this.GetCanvasGroup().alpha = 0f;
         }
         public IEnumerator FadeOut(float time)

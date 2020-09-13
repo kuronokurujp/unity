@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3671406cebe373e4e988e5750af84e67, type: 3}
-  m_Name: Bow
+  m_Name: Bow_Blue
   m_EditorClassIdentifier: 
   equippedWeaponPrefab: {fileID: 1563655986059756, guid: 7f105c0c272e6c146b4b41cdc53ea356,
     type: 3}
@@ -19,5 +19,5 @@ MonoBehaviour:
   weaponRange: 10
   weaponDamage: 5
   isRightHand: 0
-  projecttilePrefab: {fileID: 6398734093793343888, guid: 5b49d8e72bd30484685e082aa5fd01d1,
+  projecttilePrefab: {fileID: 7153901503567141861, guid: 08b631fa9012a0e4f88fcb192e013d83,
     type: 3}
