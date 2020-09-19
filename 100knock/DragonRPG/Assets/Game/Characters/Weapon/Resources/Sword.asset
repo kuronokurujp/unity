@@ -19,3 +19,4 @@ MonoBehaviour:
   weaponRange: 5
   weaponDamage: 10
   isRightHand: 1
+  projecttilePrefab: {fileID: 0}

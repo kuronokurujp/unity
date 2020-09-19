@@ -1,10 +1,11 @@
 using UnityEngine;
 using RPG.Core;
 using RPG.Movement;
+using RPG.Saving;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction 
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField]
         private float timeBetweenAttacks = 1.0f;
@@ -12,7 +13,6 @@ namespace RPG.Combat
         private Transform rightHandTransform = null;
         [SerializeField]
         private Transform leftHandTransform = null;
-
         [SerializeField]
         private Weapon defaultWeaponData = null;
         private Weapon currentWeaponData = null;
@@ -25,7 +25,10 @@ namespace RPG.Combat
         private void Start()
         {
             // 初期装備
-            this.EquipWeapon(this.defaultWeaponData); 
+            if (this.currentWeaponData == null)
+            {
+                this.EquipWeapon(this.defaultWeaponData); 
+            }
         }
         public bool CanAttack(GameObject target)
         {
@@ -87,7 +90,7 @@ namespace RPG.Combat
         {
             if (this.target == null) return;
 
-            this.target.TakeDamge(this.defaultWeaponData.GetDamage());
+            this.target.TakeDamge(this.currentWeaponData.GetDamage());
         }
         // このメソッドはAnimationEvent
         private void Shoot()
@@ -99,7 +102,7 @@ namespace RPG.Combat
         private bool GetIsRange()
         {
             Debug.Assert(this.target != null);
-            return Vector3.Distance(this.transform.position, this.target.transform.position) < this.defaultWeaponData.GetRange();
+            return Vector3.Distance(this.transform.position, this.target.transform.position) < this.currentWeaponData.GetRange();
         }
         public void Attack(GameObject combatTarget)
         {
@@ -120,6 +123,18 @@ namespace RPG.Combat
 
             animator.ResetTrigger("attack");
             animator.SetTrigger("stopAttack");
+        }
+
+        public object CaptureState()
+        {
+            return this.currentWeaponData.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            var weaponName = (string)state;
+            var weaponData = Resources.Load<Weapon>(weaponName);
+            this.EquipWeapon(weaponData); 
         }
     }
 }

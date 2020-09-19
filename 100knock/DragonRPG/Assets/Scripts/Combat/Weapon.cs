@@ -34,9 +34,20 @@ namespace RPG.Combat
                 newSowrdWeaponObject.name = weaponObjectName;
             }
 
-            if (this.animatorOverrideCtrl != null && animator != null)
+            if (animator == null)
+            {
+                return;
+            }
+
+            var overrideAnim = animator.runtimeAnimatorController as AnimatorOverrideController;
+            if (this.animatorOverrideCtrl != null)
             {
                 animator.runtimeAnimatorController = this.animatorOverrideCtrl;
+            }
+            // 設定するアニメータがない場合はすでに設定しているのを再設定する
+            else if (overrideAnim != null)
+            {
+                animator.runtimeAnimatorController = overrideAnim;
             }
         }
         public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target)

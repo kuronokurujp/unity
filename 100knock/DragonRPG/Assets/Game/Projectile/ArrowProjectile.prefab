@@ -272,6 +272,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  isHoming: 0
+  hitEffect: {fileID: 92080546018731497, guid: e06eb07d86fc47f4b8ff2cc751e2e22a, type: 3}
+  immediateGameObjects: []
+  delayDestryTimeSecond: 0
 --- !u!65 &2917316328249774989
 BoxCollider:
   m_ObjectHideFlags: 0

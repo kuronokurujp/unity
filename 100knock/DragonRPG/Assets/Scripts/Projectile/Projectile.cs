@@ -3,54 +3,75 @@ using System.Collections.Generic;
 using RPG.Core;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+namespace RPG.Combat
 {
-    [SerializeField]
-    private float speed = 1f;
-    [SerializeField]
-    private bool isHoming = false;
-
-    private Health target = null;
-    private float damage = 0f;
-
-    public void SetTarget(Health target, float damage)
+    public class Projectile : MonoBehaviour
     {
-        this.target = target;
-        this.damage = damage;
-    }
+        [SerializeField]
+        private float speed = 1f;
+        [SerializeField]
+        private bool isHoming = false;
+        [SerializeField]
+        private GameObject hitEffect = null;
+        [SerializeField]
+        private GameObject[] immediateGameObjects = new GameObject[0];
+        [SerializeField]
+        private float delayDestryTimeSecond = 10f;
 
-    private void Start()
-    {
-        this.transform.LookAt(this.GetAimLocation());
-    }
+        private Health target = null;
+        private float damage = 0f;
 
-    private void Update()
-    {
-        if (this.target == null) return;
-        if (this.isHoming && !this.target.IsDead())
+        public void SetTarget(Health target, float damage)
+        {
+            this.target = target;
+            this.damage = damage;
+        }
+
+        private void Start()
         {
             this.transform.LookAt(this.GetAimLocation());
         }
-        // 変更された座標軸に対してZ方向にまっすぐ移動するようにする
-        this.transform.Translate(Vector3.forward * this.speed * Time.deltaTime);
-    }
 
-    private Vector3 GetAimLocation()
-    {
-        CapsuleCollider capsule = this.target.GetComponent<CapsuleCollider>();
-        if (capsule == null) return this.target.transform.position;
+        private void Update()
+        {
+            if (this.target == null) return;
+            if (this.isHoming && !this.target.IsDead())
+            {
+                this.transform.LookAt(this.GetAimLocation());
+            }
+            // 変更された座標軸に対してZ方向にまっすぐ移動するようにする
+            this.transform.Translate(Vector3.forward * this.speed * Time.deltaTime);
+        }
 
-        Vector3 worldPosition = this.target.transform.position + capsule.height * Vector3.up / 2;
-        return worldPosition;
-    }
+        private Vector3 GetAimLocation()
+        {
+            CapsuleCollider capsule = this.target.GetComponent<CapsuleCollider>();
+            if (capsule == null) return this.target.transform.position;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (this.target == null) return;
-        if (this.target.IsDead()) return;
-        if (other.GetComponent<Health>() != this.target) return;
+            Vector3 worldPosition = this.target.transform.position + capsule.height * Vector3.up / 2;
+            return worldPosition;
+        }
 
-        this.target.TakeDamge(this.damage);
-        GameObject.Destroy(this.gameObject);
+        private void OnTriggerEnter(Collider other)
+        {
+            if (this.target == null) return;
+            if (this.target.IsDead()) return;
+            if (other.GetComponent<Health>() != this.target) return;
+
+            this.target.TakeDamge(this.damage);
+
+            this.speed = 0f;
+            for (int i = 0; i < this.immediateGameObjects.Length; ++i)
+            {
+                GameObject.Destroy(this.immediateGameObjects[i]);
+            }
+
+            GameObject.Destroy(this.gameObject, this.delayDestryTimeSecond);
+
+            if (this.hitEffect != null)
+            {
+                GameObject.Instantiate(this.hitEffect, this.GetAimLocation(), this.transform.rotation);
+            }
+        }
     }
 }
