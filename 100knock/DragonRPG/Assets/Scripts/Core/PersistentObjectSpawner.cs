@@ -12,7 +12,9 @@ namespace RPG.Core
         private static bool hasSpawned = false;
 
         /// <summary>
-        /// Awake is called when the script instance is being loaded.
+        /// Awakeでは基本ルールとしてメソッドを呼ばないが、
+        /// ここでは例外
+        /// なぜならゲームシステム構築をここで最初に行う必要があるので
         /// </summary>
         private void Awake()
         {

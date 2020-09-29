@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59cd2dc257de4d04e85cdae1ce5581f7, type: 3}
+  m_Name: Progresstion
+  m_EditorClassIdentifier: 
+  characterStats:
+  - characterClass: 1
+    stats:
+    - stats: 0
+      levels:
+      - 100
+      - 120
+      - 140
+    - stats: 3
+      levels:
+      - 10
+      - 15
+      - 18
+    - stats: 2
+      levels:
+      - 10
+      - 30
+  - characterClass: 2
+    stats:
+    - stats: 0
+      levels:
+      - 30
+    - stats: 3
+      levels:
+      - 5
+    - stats: 2
+      levels:
+      - 40
+      - 50
+    - stats: 1
+      levels:
+      - 20
+      - 50
+  - characterClass: 3
+    stats:
+    - stats: 0
+      levels:
+      - 15
+    - stats: 3
+      levels:
+      - 10
+    - stats: 1
+      levels:
+      - 10
+  - characterClass: 4
+    stats:
+    - stats: 0
+      levels:
+      - 50
+    - stats: 3
+      levels:
+      - 12
+    - stats: 1
+      levels:
+      - 10

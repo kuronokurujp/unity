@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using RPG.Core;
+﻿using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -20,11 +18,13 @@ namespace RPG.Combat
 
         private Health target = null;
         private float damage = 0f;
+        private GameObject instigator = null;
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(Health target, float damage, GameObject instigator)
         {
             this.target = target;
             this.damage = damage;
+            this.instigator = instigator;
         }
 
         private void Start()
@@ -58,7 +58,7 @@ namespace RPG.Combat
             if (this.target.IsDead()) return;
             if (other.GetComponent<Health>() != this.target) return;
 
-            this.target.TakeDamge(this.damage);
+            this.target.TakeDamge(this.instigator, this.damage);
 
             this.speed = 0f;
             for (int i = 0; i < this.immediateGameObjects.Length; ++i)

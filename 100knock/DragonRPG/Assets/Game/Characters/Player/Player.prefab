@@ -42,6 +42,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e6319a1cb6769b419443fc8e5d5814e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorMapping:
+  - cursorType: 0
+    texture: {fileID: 2800000, guid: 21628736160fcc9488493401da3ef621, type: 3}
+    hotspot: {x: 0, y: 0}
+  - cursorType: 1
+    texture: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+    hotspot: {x: 0, y: 0}
+  - cursorType: 3
+    texture: {fileID: 2800000, guid: 2d18e23e3ce249b4489b8bcdd02d3f48, type: 3}
+    hotspot: {x: 0, y: 0}
+  - cursorType: 2
+    texture: {fileID: 2800000, guid: 8859fce41c5d0a148ad0b7eebfca7fe9, type: 3}
+    hotspot: {x: 0, y: 0}
+  - cursorType: 4
+    texture: {fileID: 2800000, guid: f8c873f1e53e83f4aabf342d6be1dfc3, type: 3}
+    hotspot: {x: 0, y: 0}
+--- !u!114 &2975258703616893747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647647680704866028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0b4d8d711a7b244aba522b04807030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experiencePoints: 0
 --- !u!1001 &173747300670263989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -208,6 +237,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837598636554342816, guid: bb7ceed1c1a130e449460b573cb84011,
+        type: 3}
+      propertyPath: charcterClass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837598636554342816, guid: bb7ceed1c1a130e449460b573cb84011,
+        type: 3}
+      propertyPath: levelUpEffectPrefab
+      value: 
+      objectReference: {fileID: 3084260327680994460, guid: 173225aa352a39644afb731db9eb7f98,
+        type: 3}
+    - target: {fileID: 6837598636554342816, guid: bb7ceed1c1a130e449460b573cb84011,
+        type: 3}
+      propertyPath: useAdditiveModifer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9212335320912042822, guid: bb7ceed1c1a130e449460b573cb84011,
         type: 3}

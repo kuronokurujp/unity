@@ -24,32 +24,40 @@ namespace RPG.Saving
             this.CatchSavingSystemComponent();
             this.savingSystemComponent.Save(this.saveFileName);
         }
+
         public void Load()
         {
             this.CatchSavingSystemComponent();
             this.savingSystemComponent.Load(this.saveFileName);
         }
+
         public void Delete()
         {
             this.CatchSavingSystemComponent();
             this.savingSystemComponent.Delete(this.saveFileName);
         }
+
+        /// <summary>
+        /// ゲーム基本システム構築になるのでメソッド呼び出しをしている
+        /// </summary>
         private void Awake()
         {
             this.CatchSavingSystemComponent();
             Debug.Assert(this.savingSystemComponent);
             Debug.Assert(this.saveFileName != string.Empty);
+
+            // 初回起動時にシーンロードする
+            // Startにすると処理順次第でデータが反映しない可能性があるので
+            this.StartCoroutine(this.LoadLastScene());
         }
-        /// <summary>
-        /// Start is called on the frame when a script is enabled just before
-        /// any of the Update methods is called the first time.
-        /// </summary>
-        private IEnumerator Start()
+
+        private IEnumerator LoadLastScene()
         {
             this.CatchSavingSystemComponent();
+            yield return this.savingSystemComponent.LoadLastScene(this.saveFileName);
+            // シーン内のFaderオブジェクト取得
             var fader = GameObject.FindObjectOfType<Fader>();
             fader.FadeOutImmediate();
-            yield return this.savingSystemComponent.LoadLastScene(this.saveFileName);
             yield return fader.FadeIn(1f);
         }
 

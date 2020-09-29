@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using RPG.Controller;
+﻿using RPG.Control;
 using RPG.Core;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -20,9 +18,19 @@ namespace RPG.Cinematics
             this.timeline = this.GetComponent<PlayableDirector>();
             Debug.Assert(this.timeline != null);
 
+        }
+        private void OnEnable()
+        {
             this.timeline.played += this.DisableControl;
             this.timeline.stopped += this.EnableControl;
         }
+
+        private void OnDisable()
+        {
+            this.timeline.played -= this.DisableControl;
+            this.timeline.stopped -= this.EnableControl;
+        }
+
         private void DisableControl(PlayableDirector pd)
         {
             this.player = GameObject.FindWithTag("Player");

@@ -2,6 +2,7 @@
 using UnityEngine.AI;
 using RPG.Core;
 using RPG.Saving;
+using RPG.Attributes;
 
 namespace RPG.Movement
 {
@@ -9,21 +10,54 @@ namespace RPG.Movement
     {
         [SerializeField]
         private float moveSpeed = 6f;
+        [SerializeField]
+        private float navMeshPathLength = 40f;
+
         private NavMeshAgent navMeshAgent = null;
         private Health health = null;
-        private void Start()
+
+        private void Awake()
         {
             this.navMeshAgent = this.GetComponent<NavMeshAgent>();
             Debug.Assert(this.navMeshAgent != null);
 
             this.health = this.GetComponent<Health>();
         }
+
         private void Update()
         {
             // 死んだ場合Navemeshを無効にする事で死んだキャラを障害物にしないようにする
             this.navMeshAgent.enabled = !this.health.IsDead();
             this.UpdateAnimation();
         }
+
+        public bool CanMoveTo(Vector3 destantion)
+        {
+            // 移動距離を取得して移動可能距離かどうかチェック
+            if (this.GetNavMeshPathLength(destantion) > this.navMeshPathLength) return false;
+
+            return true;
+        }
+
+        private float GetNavMeshPathLength(Vector3 targetPosition)
+        {
+            float totalDistance = 0f;
+            NavMeshPath navMeshPath = new NavMeshPath();
+            if (NavMesh.CalculatePath(this.transform.position, targetPosition, NavMesh.AllAreas, navMeshPath))
+                return totalDistance;
+
+            if (navMeshPath.corners.Length < 2)
+                return totalDistance;
+
+            for (int i = 0; i < navMeshPath.corners.Length - 1; i++)
+            {
+                totalDistance += Vector3.Distance(navMeshPath.corners[i], navMeshPath.corners[i + 1]);
+            }
+
+            return totalDistance;
+        }
+
+
         public void StartMoveAction(Vector3 destination, float moveSpeedFraction)
         {
             this.GetComponent<ActionScheduler>().StartAction(this);

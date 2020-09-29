@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Control;
 using RPG.Saving;
 using UnityEngine;
 using UnityEngine.AI;
@@ -54,12 +55,19 @@ namespace RPG.SceneManagement
 
             var fader = GameObject.FindObjectOfType<Fader>();
 
+            // フェードアウト中はオブジェクト挙動停止
+            var playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+            playerController.enabled = false;
+
             yield return fader.FadeOut(this.fadeOutTime);
 
             var savingWrapper = GameObject.FindObjectOfType<SavingWrapper>();
             savingWrapper.Save();
 
             yield return SceneManager.LoadSceneAsync(this.loadSceneNumber);
+
+            var newPlayerController = GameObject.Find("Player").GetComponent<PlayerController>();
+            newPlayerController.enabled = false;
 
             yield return new WaitForSeconds(this.fadeWaitTime);
 
@@ -70,7 +78,9 @@ namespace RPG.SceneManagement
             // シーン移動先のプレイヤーの座標を保存
             savingWrapper.Save();
 
-            yield return fader.FadeIn(this.fadeInTime);
+            // フェードイン中でもオブジェクトを動作許可する
+            fader.FadeIn(this.fadeInTime);
+            newPlayerController.enabled = true;
 
             // 役目が終わったら破棄する
             GameObject.Destroy(this.gameObject);

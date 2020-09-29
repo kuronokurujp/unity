@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3671406cebe373e4e988e5750af84e67, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: 
-  equippedWeaponPrefab: {fileID: 1563655986059756, guid: 7f105c0c272e6c146b4b41cdc53ea356,
+  equippedWeaponPrefab: {fileID: 6148980408887553223, guid: 7f105c0c272e6c146b4b41cdc53ea356,
     type: 3}
   animatorOverrideCtrl: {fileID: 22100000, guid: 114cc6126f0342849be884c053e6fbe4,
     type: 2}
   weaponRange: 10
+  weaponDamagePercentageBonus: 0
   weaponDamage: 5
   isRightHand: 0
   projecttilePrefab: {fileID: 6398734093793343888, guid: 5b49d8e72bd30484685e082aa5fd01d1,

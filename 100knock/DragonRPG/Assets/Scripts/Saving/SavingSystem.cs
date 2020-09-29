@@ -24,12 +24,16 @@ namespace RPG.Saving
         public IEnumerator LoadLastScene(string fileName)
         {
             var dic = this.LoadFile(fileName);
+            int buildIndex = SceneManager.GetActiveScene().buildIndex;
             if (dic.ContainsKey(this.lastSceneLoadBuildIndexKeyName))
             {
-                int buildIndex = (int)dic[this.lastSceneLoadBuildIndexKeyName];
-                yield return SceneManager.LoadSceneAsync(buildIndex);
+                buildIndex = (int)dic[this.lastSceneLoadBuildIndexKeyName];
             }
 
+            // ロードするシーン情報がない場合は現在開いているシーンをロード
+            // こうする事でコンポーネントのAwakeメソッドがRestoreメソッドより先に呼ばれるので
+            // Awakeメソッド内の初期化が呼ばれずにRestoreメソッドでエラーになることもない
+            yield return SceneManager.LoadSceneAsync(buildIndex);
             this.Restore(dic);
         }
         public void Load(string fileName)

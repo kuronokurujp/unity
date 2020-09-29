@@ -6,11 +6,21 @@ namespace RPG.Core
 {
     public class DestoryAfterEffect : MonoBehaviour
     {
+        [SerializeField]
+        private GameObject destoryTarget = null;
+
         private void Update()
         {
             if (!this.GetComponent<ParticleSystem>().IsAlive())
             {
-                GameObject.Destroy(this.gameObject);
+                if (this.destoryTarget != null)
+                {
+                    GameObject.Destroy(this.destoryTarget);
+                }
+                else
+                {
+                    GameObject.Destroy(this.gameObject);
+                }
             }
         }
     }
