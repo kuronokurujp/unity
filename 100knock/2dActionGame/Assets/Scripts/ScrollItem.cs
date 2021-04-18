@@ -31,7 +31,7 @@ public class ScrollItem : MonoBehaviour
         // x座標のみ、速度*経過時間を減算
         transform.Translate(-1 * speed * Time.deltaTime, 0, 0);
 
-        GameObject heart = transform.FindChild("heart").gameObject;
+        GameObject heart = transform.Find("heart").gameObject;
         heart.transform.Rotate(0,Time.deltaTime * -1 * 80,0);
 
         // x座標が指定地点を過ぎていたら実行する
