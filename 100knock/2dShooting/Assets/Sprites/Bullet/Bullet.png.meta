@@ -1,11 +1,15 @@
 fileFormatVersion: 2
 guid: 9a0317eefd42740f0997b1c4587a47ff
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Bullet_0
-    21300002: Bullet_1
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Bullet_0
+  - first:
+      213: 21300002
+    second: Bullet_1
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -59,19 +63,21 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 1024
     resizeAlgorithm: 0
-    textureFormat: 2
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 1024
     resizeAlgorithm: 0
@@ -82,17 +88,19 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 1
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 1024
     resizeAlgorithm: 0
-    textureFormat: 2
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -112,6 +120,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 421c39f9372b3c14791aee184c2da959
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -132,6 +141,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e0151cf531c983e4ca3d6dea74e4cab4
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -140,10 +150,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
